@@ -8,7 +8,7 @@
 
 		<?php echo "Selamat Datang Pengguna Terramatch v1"; ?><br/><br/>
 		<?php echo "Anda dapat mempelajari pedoman pengisian Terramatch pada link berikut :"; ?><br/><br/>
-		<a href="halaman_tujuan.php">Klik di sini</a>;<br/><br/>
+		<a href="https://git.brin.go.id/bond003/terramatch-v1/-/blob/a18130e9058c5b9347b880d1837e396fc1c2c412/PANDUAN_INFORMASI_PARAMETER_DATA_TerraMatch_v1_FIX.pdf">Klik di sini</a>;<br/><br/>
 		<?php echo "Silahkan lengkapi data penilaian berikut :"; ?><br/><br/>
 
 		<form action="hasil_evaluasi.php" method="POST">
@@ -129,3 +129,4 @@
 
 		</body>
 	</html>
+
