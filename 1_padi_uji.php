@@ -53,6 +53,9 @@ if ($n2_bulanBasah >= 6 && $n2_bulanBasah <= 8){
 } else if($n2_bulanBasah >= 11 && $n2_bulanBasah <= 1){
 	$s2_bulanBasah = "N";
 	$u2_bulanBasah = "Periksa kembali inputan Anda";
+} else if($n2_bulanBasah == "-"){
+	$s2_bulanBasah = "ND";
+	$u2_bulanBasah = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s2_bulanBasah = "F";
 	$u2_bulanBasah = "Periksa kembali inputan Anda";
@@ -128,21 +131,30 @@ echo "Usaha Perbaikan : $u4_tekstur <br/>";
 
 $n5_bahanKasar = $_POST['n5_bahanKasar'];
 
-if ($n5_bahanKasar <= 2){
+if ($n5_bahanKasar == "<3"){
 	$s5_bahanKasar = "S1";
 	$u5_bahanKasar = "Kondisi terbaik";
-} else if($n5_bahanKasar >= 3 && $n5_bahanKasar <= 14){
+} else if($n5_bahanKasar == "3-14"){
 	$s5_bahanKasar = "S2";
 	$u5_bahanKasar = "Tidak dapat dilakukan";
-} else if($n5_bahanKasar >= 15 && $n5_bahanKasar <= 35){
+} else if($n5_bahanKasar == "<15"){
+	$s5_bahanKasar = "S2";
+	$u5_bahanKasar = "Tidak dapat dilakukan";
+} else if($n5_bahanKasar == "15-35"){
 	$s5_bahanKasar = "S3";
 	$u5_bahanKasar = "Tidak dapat dilakukan";
-} else if($n5_bahanKasar >= 36){
+} else if($n5_bahanKasar == "15-34"){
+	$s5_bahanKasar = "S3";
+	$u5_bahanKasar = "Tidak dapat dilakukan";
+} else if($n5_bahanKasar == "35-55"){
 	$s5_bahanKasar = "N";
 	$u5_bahanKasar = "Tidak dapat dilakukan";
-} else{
-	$s5_bahanKasar = "F";
-	$u5_bahanKasar = "Periksa kembali inputan Anda";
+} else if($n5_bahanKasar == ">55"){
+	$s5_bahanKasar = "N";
+	$u5_bahanKasar = "Tidak dapat dilakukan";
+} else if ($n5_bahanKasar == ">35"){
+	$s5_bahanKasar = "N";
+	$u5_bahanKasar = "Tidak dapat dilakukan";
 }
 
 echo "5. Bahan Kasar : $n5_bahanKasar (%) <br/>";
@@ -153,21 +165,33 @@ echo "Usaha Perbaikan : $u5_bahanKasar <br/>";
 
 $n6_kedalamanTanah = $_POST['n6_kedalamanTanah'];
 
-if ($n6_kedalamanTanah >= 51){
+if ($n6_kedalamanTanah == ">50"){
 	$s6_kedalamanTanah = "S1";
 	$u6_kedalamanTanah = "Kondisi terbaik";
-} else if($n6_kedalamanTanah >= 41 && $n6_kedalamanTanah <= 50){
+} else if($n6_kedalamanTanah == ">60"){
+	$s6_kedalamanTanah = "S1";
+	$u6_kedalamanTanah = "Kondisi terbaik";
+} else if($n6_kedalamanTanah == "41-50"){
 	$s6_kedalamanTanah = "S2";
 	$u6_kedalamanTanah = "Umumnya tidak dapat dilakukan, kecuali pada lapisan padas lunak dan tipis dengan membongkarnya waktu pengolahan tanah";
-} else if($n6_kedalamanTanah >= 25 && $n6_kedalamanTanah <= 40){
+} else if($n6_kedalamanTanah == "41-60"){
+	$s6_kedalamanTanah = "S2";
+	$u6_kedalamanTanah = "Umumnya tidak dapat dilakukan, kecuali pada lapisan padas lunak dan tipis dengan membongkarnya waktu pengolahan tanah";
+} else if($n6_kedalamanTanah == "31-50"){
+	$s6_kedalamanTanah = "S2";
+	$u6_kedalamanTanah = "Umumnya tidak dapat dilakukan, kecuali pada lapisan padas lunak dan tipis dengan membongkarnya waktu pengolahan tanah";
+} else if($n6_kedalamanTanah == "25-40"){
 	$s6_kedalamanTanah = "S3";
 	$u6_kedalamanTanah = "Umumnya tidak dapat dilakukan, kecuali pada lapisan padas lunak dan tipis dengan membongkarnya waktu pengolahan tanah";
-} else if($n6_kedalamanTanah <= 24){
+} else if($n6_kedalamanTanah == "20-30"){
+	$s6_kedalamanTanah = "S3";
+	$u6_kedalamanTanah = "Umumnya tidak dapat dilakukan, kecuali pada lapisan padas lunak dan tipis dengan membongkarnya waktu pengolahan tanah";
+} else if($n6_kedalamanTanah == "<25"){
 	$s6_kedalamanTanah = "N";
 	$u6_kedalamanTanah = "Umumnya tidak dapat dilakukan, kecuali pada lapisan padas lunak dan tipis dengan membongkarnya waktu pengolahan tanah";
-} else{
-	$s6_kedalamanTanah = "F";
-	$u6_kedalamanTanah = "Periksa kembali inputan Anda";
+} else if($n6_kedalamanTanah == "<20"){
+	$s6_kedalamanTanah = "N";
+	$u6_kedalamanTanah = "Umumnya tidak dapat dilakukan, kecuali pada lapisan padas lunak dan tipis dengan membongkarnya waktu pengolahan tanah";
 }
 
 echo "6. Kedalaman Tanah : $n6_kedalamanTanah (cm) <br/>";
@@ -178,21 +202,21 @@ echo "Usaha Perbaikan : $u6_kedalamanTanah <br/>";
 
 $n7_ketebalanGambut = $_POST['n7_ketebalanGambut'];
 
-if ($n7_ketebalanGambut <= 49){
+if ($n7_ketebalanGambut == "<50"){
 	$s7_ketebalanGambut = "S1";
 	$u7_ketebalanGambut = "Kondisi terbaik";
-} else if($n7_ketebalanGambut >= 50 && $n7_ketebalanGambut <= 99){
+} else if($n7_ketebalanGambut == "50-99"){
 	$s7_ketebalanGambut = "S2";
 	$u7_ketebalanGambut = "Dengan teknik pemadatan gambut, teknik penanaman serta pemilihan varietas";
-} else if($n7_ketebalanGambut >= 100 && $n7_ketebalanGambut <= 150){
+} else if($n7_ketebalanGambut == "100-150"){
 	$s7_ketebalanGambut = "S3";
 	$u7_ketebalanGambut = "Dengan teknik pemadatan gambut, teknik penanaman serta pemilihan varietas";
-} else if($n7_ketebalanGambut >= 151){
+} else if($n7_ketebalanGambut == ">150"){
 	$s7_ketebalanGambut = "N";
 	$u7_ketebalanGambut = "Dengan teknik pemadatan gambut, teknik penanaman serta pemilihan varietas";
-} else{
-	$s7_ketebalanGambut = "F";
-	$u7_ketebalanGambut = "Periksa kembali inputan Anda";
+} else if($n7_ketebalanGambut == "Tidak_Ada_Data"){
+	$s7_ketebalanGambut = "ND";
+	$u7_ketebalanGambut = "Tidak ada data, butuh pengukuran lanjutan";
 }
 
 echo "7. Ketebalan Gambut : $n7_ketebalanGambut (cm) <br/>";
@@ -215,6 +239,9 @@ if ($n8_kematanganGambut == "saprik"){
 } else if($n8_kematanganGambut == "fibrik"){
 	$s8_kematanganGambut = "N";
 	$u8_kematanganGambut = "Pengaturan sistem drainase untuk mempercepat proses pematangan gambut";
+} else if($n8_kematanganGambut == "-"){
+	$s8_kematanganGambut = "ND";
+	$u8_kematanganGambut = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s8_kematanganGambut = "F";
 	$u8_kematanganGambut = "Periksa kembali inputan Anda";
@@ -237,6 +264,9 @@ if ($n9_ktkLiat >= 17){
 } else if($n9_ktkLiat <= 4){
 	$s9_ktkLiat = "S3";
 	$u9_ktkLiat = "Pengapuran atau penambahan bahan organik";
+} else if($n9_ktkLiat == "-"){
+	$s9_ktkLiat = "ND";
+	$u9_ktkLiat = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s9_ktkLiat = "F";
 	$u9_ktkLiat = "Periksa kembali inputan Anda";
@@ -259,6 +289,9 @@ if ($n10_kejenuhanBasa >= 51){
 } else if($n10_kejenuhanBasa <= 34){
 	$s10_kejenuhanBasa = "S3";
 	$u10_kejenuhanBasa = "Pengapuran atau penambahan bahan organik";
+} else if($n10_kejenuhanBasa == "-"){
+	$s10_kejenuhanBasa = "ND";
+	$u10_kejenuhanBasa = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s10_kejenuhanBasa = "F";
 	$u10_kejenuhanBasa = "Periksa kembali inputan Anda";
@@ -284,6 +317,9 @@ if ($n11_phH2o >= 5.6 && $n11_phH2o <= 6.9){
 } else if($n11_phH2o < 4.5 && $n11_phH2o > 8){
 	$s11_phH2o = "S3";
 	$u11_phH2o = "Pengapuran atau penambahan bahan organik";
+} else if($n11_phH2o == "-"){
+	$s11_phH2o = "ND";
+	$u11_phH2o = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s11_phH2o = "F";
 	$u11_phH2o = "Periksa kembali inputan Anda";
@@ -306,6 +342,9 @@ if ($n12_cOrganik > 1.2){
 } else if($n12_cOrganik < 0.8){
 	$s12_cOrganik = "S3";
 	$u12_cOrganik = "Pengapuran atau penambahan bahan organik";
+} else if($n12_cOrganik == "-"){
+	$s12_cOrganik = "ND";
+	$u12_cOrganik = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s12_cOrganik = "F";
 	$u12_cOrganik = "Periksa kembali inputan Anda";
@@ -328,6 +367,9 @@ if ($n13_nTotal == "sedang"){
 } else if($n13_nTotal == "sangat_rendah"){
 	$s13_nTotal = "S3";
 	$u13_nTotal = "Pemupukan N";
+} else if($n13_nTotal == "-"){
+	$s13_nTotal = "ND";
+	$u13_nTotal = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s13_nTotal = "F";
 	$u13_nTotal = "Periksa kembali inputan Anda";
@@ -353,6 +395,9 @@ if ($n14_pTersedia == "tinggi"){
 } else if($n14_pTersedia == "sangat_rendah"){
 	$s14_pTersedia = "S3";
 	$u14_pTersedia = "Pemupukan P";
+} else if($n14_pTersedia == "-"){
+	$s14_pTersedia = "ND";
+	$u14_pTersedia = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s14_pTersedia = "F";
 	$u14_pTersedia = "Periksa kembali inputan Anda";
@@ -375,6 +420,9 @@ if ($n15_kTersedia == "sedang"){
 } else if($n15_kTersedia == "sangat_rendah"){
 	$s15_kTersedia = "S3";
 	$u15_kTersedia = "Pemupukan K";
+} else if($n15_kTersedia == "-"){
+	$s15_kTersedia = "ND";
+	$u15_kTersedia = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s15_kTersedia = "F";
 	$u15_kTersedia = "Periksa kembali inputan Anda";
@@ -400,6 +448,9 @@ if ($n16_salinitas <= 1){
 } else if($n16_salinitas >= 7){
 	$s16_salinitas = "N";
 	$u16_salinitas = "Reklamasi";
+} else if($n16_salinitas == "-"){
+	$s16_salinitas = "ND";
+	$u16_salinitas = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s16_salinitas = "F";
 	$u16_salinitas = "Periksa kembali inputan Anda";
@@ -425,6 +476,9 @@ if ($n17_alkalinitas <= 19){
 } else if($n17_alkalinitas >= 41){
 	$s17_alkalinitas = "N";
 	$u17_alkalinitas = "Reklamasi";
+} else if($n17_alkalinitas == "-"){
+	$s17_alkalinitas = "ND";
+	$u17_alkalinitas = "Tidak ada data, butuh pengukuran lanjutan";
 } else{
 	$s17_alkalinitas = "F";
 	$u17_alkalinitas = "Periksa kembali inputan Anda";
@@ -463,21 +517,39 @@ echo "Usaha Perbaikan : $u18_sulfidik <br/>";
 
 $n19_lereng = $_POST['n19_lereng'];
 
-if ($n19_lereng <= 2){
+if ($n19_lereng == "<3"){
 	$s19_lereng = "S1";
 	$u19_lereng = "Kondisi terbaik";
-} else if($n19_lereng >= 3 && $n19_lereng <= 4){
+} else if($n19_lereng == "3-4"){
 	$s19_lereng = "S2";
 	$u19_lereng = "Pengurangan kemiringan";
-} else if($n19_lereng >= 5 && $n19_lereng <= 8){
+} else if($n19_lereng == "3-7"){
 	$s19_lereng = "S3";
 	$u19_lereng = "Pengurangan kemiringan";
-} else if($n19_lereng >= 9){
+} else if($n19_lereng == "5-8"){
+	$s19_lereng = "S3";
+	$u19_lereng = "Pengurangan kemiringan";
+} else if($n19_lereng == "<8"){
+	$s19_lereng = "S3";
+	$u19_lereng = "Pengurangan kemiringan";
+} else if($n19_lereng == "8-14"){
 	$s19_lereng = "N";
 	$u19_lereng = "Pengurangan kemiringan";
-} else{
-	$s19_lereng = "F";
-	$u19_lereng = "Periksa kembali inputan Anda";
+} else if($n19_lereng == "8-15"){
+	$s19_lereng = "N";
+	$u19_lereng = "Pengurangan kemiringan";
+} else if($n19_lereng == "15-25"){
+	$s19_lereng = "N";
+	$u19_lereng = "Pengurangan kemiringan";
+} else if($n19_lereng == ">15"){
+	$s19_lereng = "N";
+	$u19_lereng = "Pengurangan kemiringan";
+} else if($n19_lereng == ">25"){
+	$s19_lereng = "N";
+	$u19_lereng = "Pengurangan kemiringan";
+} else if($n19_lereng == ">8"){
+	$s19_lereng = "N";
+	$u19_lereng = "Pengurangan kemiringan";
 }
 
 echo "19. Lereng : $n19_lereng (%) <br/>";
@@ -497,7 +569,13 @@ if ($n20_bahayaErosi == "tidak_ada"){
 } else if($n20_bahayaErosi == "ringan"){
 	$s20_bahayaErosi = "S3";
 	$u20_bahayaErosi = "Usaha pengurangan laju erosi, pembuatan teras, penanaman sejajar kontur, penanaman tanaman penutup tanah";
-} else if($n20_bahayaErosi == "sedang-berat"){
+} else if($n20_bahayaErosi == "sedang"){
+	$s20_bahayaErosi = "N";
+	$u20_bahayaErosi = "Usaha pengurangan laju erosi, pembuatan teras, penanaman sejajar kontur, penanaman tanaman penutup tanah";
+} else if($n20_bahayaErosi == "berat"){
+	$s20_bahayaErosi = "N";
+	$u20_bahayaErosi = "Usaha pengurangan laju erosi, pembuatan teras, penanaman sejajar kontur, penanaman tanaman penutup tanah";
+} else if($n20_bahayaErosi == "sangat_berat"){
 	$s20_bahayaErosi = "N";
 	$u20_bahayaErosi = "Usaha pengurangan laju erosi, pembuatan teras, penanaman sejajar kontur, penanaman tanaman penutup tanah";
 } else{
@@ -513,21 +591,24 @@ echo "Usaha Perbaikan : $u20_bahayaErosi <br/>";
 
 $n21_tinggi = $_POST['n21_tinggi'];
 
-if ($n21_tinggi > 24 && $n21_tinggi < 26){
+if ($n21_tinggi == "25"){
 	$s21_tinggi = "S1";
 	$u21_tinggi = "Kondisi terbaik";
-} else if($n21_tinggi >= 26 && $n21_tinggi <= 49){
+} else if ($n21_tinggi == "<=25"){
+	$s21_tinggi = "S1";
+	$u21_tinggi = "Kondisi terbaik";
+} else if($n21_tinggi == "26-49"){
 	$s21_tinggi = "S2";
 	$u21_tinggi = "Pembuatan tanggul penahan banjir dan pembuatan saluran drainase untuk mempercepat pembuangan air";
-} else if($n21_tinggi >= 50 && $n21_tinggi <= 75){
+} else if($n21_tinggi == ">25"){
+	$s21_tinggi = "S2";
+	$u21_tinggi = "Pembuatan tanggul penahan banjir dan pembuatan saluran drainase untuk mempercepat pembuangan air";
+} else if($n21_tinggi == "50-75"){
 	$s21_tinggi = "S3";
 	$u21_tinggi = "Pembuatan tanggul penahan banjir dan pembuatan saluran drainase untuk mempercepat pembuangan air";
-} else if($n21_tinggi >= 76){
+} else if($n21_tinggi == ">75"){
 	$s21_tinggi = "N";
 	$u21_tinggi = "Pembuatan tanggul penahan banjir dan pembuatan saluran drainase untuk mempercepat pembuangan air";
-} else{
-	$s21_tinggi = "F";
-	$u21_tinggi = "Periksa kembali inputan Anda";
 }
 
 echo "21. Bahaya Banjir - tinggi : $n21_tinggi (cm) <br/>";
@@ -538,21 +619,24 @@ echo "Usaha Perbaikan : $u21_tinggi <br/>";
 
 $n22_lama = $_POST['n22_lama'];
 
-if ($n22_lama <= 0){
+if ($n22_lama == "<1"){
 	$s22_lama = "S1";
 	$u22_lama = "Kondisi terbaik";
-} else if($n22_lama >= 1 && $n22_lama <= 6){
+} else if($n22_lama == "1-6"){
 	$s22_lama = "S2";
 	$u22_lama = "Pembuatan jalur/drainase keluar air";
-} else if($n22_lama >= 7 && $n22_lama <= 14){
+} else if($n22_lama == "7-14"){
 	$s22_lama = "S3";
 	$u22_lama = "Pembuatan jalur/drainase keluar air";
-} else if($n22_lama >= 15){
+} else if($n22_lama == "<7"){
+	$s22_lama = "S2";
+	$u22_lama = "Pembuatan jalur/drainase keluar air";
+} else if($n22_lama == ">7"){
+	$s22_lama = "S3";
+	$u22_lama = "Pembuatan jalur/drainase keluar air";
+} else if($n22_lama == ">14"){
 	$s22_lama = "N";
 	$u22_lama = "Pembuatan jalur/drainase keluar air";
-} else{
-	$s22_lama = "F";
-	$u22_lama = "Periksa kembali inputan Anda";
 }
 
 echo "22. Bahaya Banjir - lama : $n22_lama (hari) <br/>";
@@ -563,21 +647,18 @@ echo "Usaha Perbaikan : $u22_lama <br/>";
 
 $n23_batuanPermukaan = $_POST['n23_batuanPermukaan'];
 
-if ($n23_batuanPermukaan <= 4){
+if ($n23_batuanPermukaan == "<5"){
 	$s23_batuanPermukaan = "S1";
 	$u23_batuanPermukaan = "Kondisi terbaik";
-} else if($n23_batuanPermukaan >= 5 && $n23_batuanPermukaan <= 14){
+} else if($n23_batuanPermukaan == "5-14"){
 	$s23_batuanPermukaan = "S2";
 	$u23_batuanPermukaan = "Tidak dapat dilakukan";
-} else if($n23_batuanPermukaan >= 15 && $n23_batuanPermukaan <= 40){
+} else if($n23_batuanPermukaan == "15-40"){
 	$s23_batuanPermukaan = "S3";
 	$u23_batuanPermukaan = "Tidak dapat dilakukan";
-} else if($n23_batuanPermukaan >= 41){
+} else if($n23_batuanPermukaan == ">40"){
 	$s23_batuanPermukaan = "N";
 	$u23_batuanPermukaan = "Tidak dapat dilakukan";
-} else{
-	$s23_batuanPermukaan = "F";
-	$u23_batuanPermukaan = "Periksa kembali inputan Anda";
 }
 
 echo "23. Penyiapan Lahan - Batuan di Permukaan : $n23_batuanPermukaan (%) <br/>";
@@ -588,21 +669,18 @@ echo "Usaha Perbaikan : $u23_batuanPermukaan <br/>";
 
 $n24_singkapanBatuan = $_POST['n24_singkapanBatuan'];
 
-if ($n24_singkapanBatuan <= 4){
+if ($n24_singkapanBatuan == "<5"){
 	$s24_singkapanBatuan = "S1";
 	$u24_singkapanBatuan = "Kondisi terbaik";
-} else if($n24_singkapanBatuan >= 5 && $n24_singkapanBatuan <= 14){
+} else if($n24_singkapanBatuan == "5-14"){
 	$s24_singkapanBatuan = "S2";
 	$u24_singkapanBatuan = "Tidak dapat dilakukan";
-} else if($n24_singkapanBatuan >= 15 && $n24_singkapanBatuan <= 25){
+} else if($n24_singkapanBatuan == "15-25"){
 	$s24_singkapanBatuan = "S3";
 	$u24_singkapanBatuan = "Tidak dapat dilakukan";
-} else if($n24_singkapanBatuan >= 26){
+} else if($n24_singkapanBatuan == ">25"){
 	$s24_singkapanBatuan = "N";
 	$u24_singkapanBatuan = "Tidak dapat dilakukan";
-} else{
-	$s24_singkapanBatuan = "F";
-	$u24_singkapanBatuan = "Periksa kembali inputan Anda";
 }
 
 echo "24. Penyiapan Lahan - Singkapan Batuan : $n24_singkapanBatuan (%) <br/>";
